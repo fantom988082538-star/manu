@@ -1,3 +1,4 @@
+cat << 'EOF' > /var/www/manushop-backend/server.js
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -25,15 +26,22 @@ const { v4: uuid } = require('uuid');
 
 const app = express();
 
-// Render (и большинство хостингов) работают через свой прокси.
-// Без этой строки Express видит IP прокси у ВСЕХ посетителей одинаково,
-// из-за чего лимит запросов (rate limit) считается на всех разом, а не по-отдельности.
 app.set('trust proxy', 1);
 
-app.use(helmet());
-app.use(cors());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' }
+  })
+);
 
-// Вебхуку нужно "сырое" тело для проверки подписи — подключаем ДО express.json()
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  })
+);
+
 app.use('/api/webhook', express.raw({ type: 'application/json' }), webhookRoutes);
 
 app.use(express.json());
@@ -91,9 +99,10 @@ async function bootstrapSuperAdmin() {
 const PORT = process.env.PORT || 4000;
 bootstrapSuperAdmin()
   .then(() => {
-    app.listen(PORT, () => console.log(`ManuShop API запущен на порту ${PORT}`));
+    app.listen(PORT, '0.0.0.0', () => console.log(`ManuShop API запущен на порту ${PORT}`));
   })
   .catch((e) => {
     console.error('[bootstrap] Не удалось запустить сервер — проверь MONGODB_URI:', e.message);
     process.exit(1);
   });
+EOF
