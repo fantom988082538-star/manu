@@ -1,0 +1,54 @@
+[
+  {
+    "key": "ff",
+    "title": "Free Fire",
+    "needsServer": false,
+    "idLabel": "UID игрока",
+    "idPlaceholder": "Например: 123456789",
+    "serverLabel": "Сервер",
+    "serverPlaceholder": "",
+    "pricingType": "fixed",
+    "commissionPercent": 0,
+    "supplierGameCode": "freefire",
+    "packs": [
+      { "id": "ff1", "label": "100 алмазов", "price": 12, "denom": "100" },
+      { "id": "ff2", "label": "310 алмазов", "price": 34, "denom": "310" },
+      { "id": "ff3", "label": "520 алмазов", "price": 56, "denom": "520" },
+      { "id": "ff4", "label": "1080 алмазов", "price": 108, "denom": "1080" }
+    ]
+  },
+  {
+    "key": "pubg",
+    "title": "PUBG Mobile",
+    "needsServer": false,
+    "idLabel": "UID игрока",
+    "idPlaceholder": "Например: 123456789",
+    "serverLabel": "Сервер",
+    "serverPlaceholder": "",
+    "pricingType": "fixed",
+    "commissionPercent": 0,
+    "supplierGameCode": "pubgm",
+    "packs": [
+      { "id": "pm1", "label": "60 UC", "price": 15, "denom": "60" },
+      { "id": "pm2", "label": "325 UC", "price": 70, "denom": "325" },
+      { "id": "pm3", "label": "660 UC", "price": 135, "denom": "660" }
+    ]
+  },
+  {
+    "key": "mlbb",
+    "title": "Mobile Legends",
+    "needsServer": true,
+    "idLabel": "UID игрока",
+    "idPlaceholder": "Например: 123456789",
+    "serverLabel": "Код сервера",
+    "serverPlaceholder": "Например: 2202",
+    "pricingType": "fixed",
+    "commissionPercent": 0,
+    "supplierGameCode": "mlbb",
+    "packs": [
+      { "id": "ml1", "label": "86 алмазов", "price": 14, "denom": "86" },
+      { "id": "ml2", "label": "172 алмаза", "price": 27, "denom": "172" },
+      { "id": "ml3", "label": "257 алмазов", "price": 40, "denom": "257" }
+    ]
+  }
+]
