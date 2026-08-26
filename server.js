@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -105,4 +104,3 @@ bootstrapSuperAdmin()
     console.error('[bootstrap] Не удалось запустить сервер — проверь MONGODB_URI:', e.message);
     process.exit(1);
   });
-EOF
