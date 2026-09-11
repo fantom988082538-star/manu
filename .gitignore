@@ -1,0 +1,9 @@
+node_modules/
+.env
+data/database.sqlite
+data/database.sqlite-*
+uploads/listings/*
+uploads/receipts/*
+!uploads/listings/.gitkeep
+!uploads/receipts/.gitkeep
+*.log
